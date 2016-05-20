@@ -2,10 +2,9 @@
 
 @section('content')
 
-	@include('errors.error')
+	<h1>Edit Posts</h1>
 
-
-	{!! Form::open(['method'=>'POST', 'action'=>'AdminPostsController@store', 'files'=>true]) !!}
+	{!! Form::model($post, ['method'=>'PATCH', 'action'=>['AdminPostsController@update', $post->id], 'files'=>true]) !!}
 
 		<div class="form-group">
 			{!! Form::label('title', 'Title') !!}
@@ -19,7 +18,7 @@
 
 		<div class="form-group">
 			{!! Form::label('category_id', 'Category') !!}
-			{!! Form::select('category_id', $categories, '2' ) !!}
+			{!! Form::select('category_id', $category ) !!}
 		</div>
 
 		<div class="form-group">
@@ -31,6 +30,6 @@
 			{!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
 		</div>
 
-	{!! Form::close() !!}
+	{!! Form::close() !!}	
 
 @endsection

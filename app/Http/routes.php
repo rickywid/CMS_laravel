@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::auth();
 
 Route::resource('/admin/posts', 'AdminPostsController');
+Route::resource('/admin/users', 'AdminUsersController');
