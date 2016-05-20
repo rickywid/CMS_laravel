@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Category;
+use App\Photo;
 
-class AdminCategoriesController extends Controller
+class AdminMediasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,9 @@ class AdminCategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        $photo = Photo::all();
+
+        return view('admin.media.index', compact('photo'));
     }
 
     /**
@@ -28,7 +29,7 @@ class AdminCategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.media.create');
     }
 
     /**
@@ -39,8 +40,14 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
-        return redirect('/admin/categories');
+            $file = $request->file('file');
+           
+            //create filename
+            $name = "media" . $file->getClientOriginalName();
+            //move file to /public/images/
+            $file->move('images', $name);
+            //create new photo record in Photos table
+            Photo::create(['filename'=>$name]);
     }
 
     /**
@@ -62,8 +69,7 @@ class AdminCategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        return view('admin.categories.edit', compact('category'));
+        //
     }
 
     /**
@@ -75,11 +81,7 @@ class AdminCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
-
-        $category->update($request->all());
-
-        return redirect('/admin/categories');
+        //
     }
 
     /**
@@ -90,8 +92,8 @@ class AdminCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
+        Photo::find($id)->delete();
 
-        return redirect('/admin/categories');
+        return redirect('/admin/media');
     }
 }

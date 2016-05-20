@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Requests\UserFormRequest;
+use App\User;
+use App\Photo;
+use App\Role;
+
+use Session;
+
 class AdminUsersController extends Controller
 {
     /**
@@ -15,7 +22,9 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -25,7 +34,9 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        //
+        $role = Role::all()->pluck('name', 'id');
+
+        return view('admin.users.create', compact('role'));
     }
 
     /**
@@ -36,7 +47,29 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+
+        //if file upload exists
+        if($file = $request->file('filename')){
+            //create filename
+            $name = "user" . $file->getClientOriginalName();
+            //move file to /public/images/
+            $file->move('images', $name);
+            //create new photo record in Photos table
+            $photo = Photo::create(['filename'=>$name]);
+            //save newly created photo's id as photo_id inside User's table
+            $input['photo_id'] = $photo->id;
+        }
+
+        Session::flash('user_created', 'User has been successfully created');
+
+        //bcrypt password
+        $input['password'] = bcrypt($request->password);
+        //save new User
+        User::create($input);
+
+        return redirect('/admin/users');
     }
 
     /**
@@ -47,7 +80,7 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.users.show');
     }
 
     /**
@@ -58,7 +91,10 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $role = Role::all()->pluck('name', 'id');                
+
+        return view('admin.users.edit', compact('user', 'role'));
     }
 
     /**
@@ -70,7 +106,32 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(trim($request->password) == ''){
+           $input = $request->except('password');
+        } else {
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+
+        $user = User::findOrFail($id);
+
+        //if file upload exists
+        if($file = $request->file('filename')){
+            //create filename
+            $name = "user" . $file->getClientOriginalName();
+            //move file to /public/images/
+            $file->move('images', $name);
+            //create new photo record in Photos table
+            $photo = Photo::create(['filename'=>$name]);
+            //save newly created photo's id as photo_id inside User's table
+            $input['photo_id'] = $photo->id;
+        }  
+
+        Session::flash('user_updated', 'User has been successfully updated');
+
+        $user->update($input);
+
+        return redirect('/admin/users');
     }
 
     /**
@@ -81,6 +142,11 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        Session::flash('user_deleted', 'User has been successfully deleted');
+
+        return redirect('admin/users/');
     }
 }
