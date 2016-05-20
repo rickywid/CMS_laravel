@@ -58,7 +58,7 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
+/*
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
@@ -72,11 +72,10 @@ return [
             'strict' => false,
             'engine' => null,
         ],
+*/  
 
-/*
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
             'host'      => $host,
             'database'  => $database,
@@ -88,7 +87,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-*/        
+      
 
         'pgsql' => [
             'driver' => 'pgsql',
