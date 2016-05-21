@@ -1,6 +1,9 @@
 
 /*# sourceMappingURL=app.css.map */
 
+body {
+	padding: 0;
+}
 
 .glyphicon-time {
 	margin-left: 25px;
