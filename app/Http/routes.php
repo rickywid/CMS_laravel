@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', ['uses'=>'PostsController@index']);
 Route::resource('/post', 'PostsController');
 Route::resource('/admin/user', 'UserProfileController');
+Route::get('/admin/users/{id}/edit', ['uses'=>'AdminUsersController@edit']);
+Route::patch('/admin/users/{id}', ['uses'=>'AdminUsersController@update']);
 
 
 Route::auth();

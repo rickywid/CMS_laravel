@@ -29,14 +29,14 @@
 
 	<h4>FEATURES</h4>
 	<ul>
-		<li>CRUD actions for Users, Posts, Comments, Nested Comments, Media</li>
+		<li>CRUD actions for Users, Posts, Comments, Comments Replies, Media Files</li>
 		<li>User login and registration</li>
 		<li>Confirmation of comments before displaying on post page</li>
 		<li>Allow only logged in users to leave comments on blog posts</li>
 		<li>Form Validations</li>
 		<li>Restrict admin area to Administrators and Active users only</li>
 		<li>Password resets</li>
-		<li>User profile page</li>
+		<li>View and edit logged in user's profile page</li>
 	</ul>
 
 @endsection 
