@@ -4,6 +4,9 @@
 
 	<h2>Edit User</h2>
 
+	@include('errors.announcement')	
+	@include('errors.error')
+
 	{!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@update', $user->id], 'files'=>true]) !!}
 
 

@@ -4,8 +4,16 @@
 
 	<h2>New User</h2>
 
+	@if(Session::has('user_created') || Session::has('user_deleted') || Session::has('user_updated'))
+		<div class="alert alert-success">
+			<p>{{Session('user_created')}}</p>
+			<p>{{Session('user_deleted')}}</p>
+			<p>{{Session('user_updated')}}</p>
+		</div>
+	@endif	
 
-@include('errors.error')
+	@include('errors.announcement')	
+	@include('errors.error')
 
 
 	<div class="form-group">

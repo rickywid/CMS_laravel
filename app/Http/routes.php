@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,13 +13,31 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['uses'=>'PostsController@index']);
+Route::resource('/post', 'PostsController');
+
+
 
 Route::auth();
 
-Route::resource('/admin/posts', 'AdminPostsController');
-Route::resource('/admin/users', 'AdminUsersController');
-Route::resource('/admin/categories', 'AdminCategoriesController');
-Route::resource('/admin/media', 'AdminMediasController');
+Route::group(['middleware'=>'admin'], function(){
+	
+
+	Route::get('/admin', ['as'=>'admin.index', function(){
+
+
+		$user = Auth::user();
+
+		return view('admin.index', compact('user'));		
+	}]);
+
+	Route::resource('/admin/posts', 'AdminPostsController');
+	Route::resource('/admin/users', 'AdminUsersController');
+	Route::resource('/admin/user', 'UserProfileController');
+	Route::resource('/admin/categories', 'AdminCategoriesController');
+	Route::resource('/admin/media', 'AdminMediasController');
+	Route::resource('/admin/comments', 'AdminCommentsController');
+	Route::resource('/admin/replies', 'RepliesController');
+});
+
+

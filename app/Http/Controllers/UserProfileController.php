@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 use App\Http\Requests;
 
-use App\Category;
+use Illuminate\Support\Facades\Auth;
 
-class AdminCategoriesController extends Controller
+
+class UserProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,7 @@ class AdminCategoriesController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories', 'user'));
+        //
     }
 
     /**
@@ -40,8 +39,7 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
-        return redirect('/admin/categories');
+        //
     }
 
     /**
@@ -52,7 +50,11 @@ class AdminCategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Auth::user();
+        $posts = $user->posts()->get();
+        
+
+        return view('admin.user.show', compact('user', 'posts'));
     }
 
     /**
@@ -63,9 +65,7 @@ class AdminCategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        $user = Auth::user();
-        return view('admin.categories.edit', compact('category', 'user'));
+        //
     }
 
     /**
@@ -77,11 +77,7 @@ class AdminCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
-
-        $category->update($request->all());
-
-        return redirect('/admin/categories');
+        //
     }
 
     /**
@@ -92,8 +88,6 @@ class AdminCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
-
-        return redirect('/admin/categories');
+        //
     }
 }

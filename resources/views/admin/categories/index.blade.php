@@ -3,6 +3,7 @@
 
 @section('content')
 
+	@include('errors.announcement')	
 
 		<div class="col-sm-6">
 			{!! Form::open(['method'=>'POST', 'action'=>'AdminCategoriesController@store']) !!}

@@ -1,2 +1,24 @@
 
 /*# sourceMappingURL=app.css.map */
+
+
+body {
+	padding: 0;
+}
+
+.glyphicon-time {
+	margin-left: 25px;
+}
+
+.form-reply-container {
+	display: none;
+}
+
+.page-header {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+#admin-page {
+	padding: 0;
+}

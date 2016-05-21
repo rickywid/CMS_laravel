@@ -23,8 +23,9 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $posts = Post::all();
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts', 'user'));
     }
 
     /**
@@ -34,9 +35,10 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
         $categories = Category::pluck('name','id');
 
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'user'));
     }
 
     /**
@@ -92,9 +94,10 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $user = Auth::user();        
         $category = Category::all()->pluck('name', 'id');
 
-        return view('admin.posts.edit', compact('post', 'category'));
+        return view('admin.posts.edit', compact('post', 'category', 'user'));
     }
 
     /**

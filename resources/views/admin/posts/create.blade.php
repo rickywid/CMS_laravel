@@ -2,6 +2,9 @@
 
 @section('content')
 
+	<h2>Create Post</h2>
+
+	@include('errors.announcement')	
 	@include('errors.error')
 
 

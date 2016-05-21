@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 
-use App\Category;
+use App\CommentReply;
 
-class AdminCategoriesController extends Controller
+use Session;
+
+class RepliesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +20,9 @@ class AdminCategoriesController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories', 'user'));
+        $replies = CommentReply::all();
+
+        return view('admin.replies.index', compact('replies', 'user'));
     }
 
     /**
@@ -40,8 +43,24 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
-        return redirect('/admin/categories');
+ 
+        $user = Auth::user();
+            
+        $data = [
+            'name' => $user->name,
+            'email' => $user->email,
+            'user_photo' => $user->photo->filename,
+            'comment_id' => $request->comment_id,
+            'body' => $request->body
+        ];
+
+        Session::flash('reply_created', 'Reply sent and waiting for approval');
+
+        
+
+        CommentReply::create($data);
+
+        return back();
     }
 
     /**
@@ -63,9 +82,7 @@ class AdminCategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        $user = Auth::user();
-        return view('admin.categories.edit', compact('category', 'user'));
+        //
     }
 
     /**
@@ -77,11 +94,9 @@ class AdminCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
-
-        $category->update($request->all());
-
-        return redirect('/admin/categories');
+        CommentReply::findOrFail($id)->update($request->all());
+        
+        return back();
     }
 
     /**
@@ -92,8 +107,10 @@ class AdminCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
+        CommentReply::findOrFail($id)->delete();
 
-        return redirect('/admin/categories');
+        Session::flash('reply_deleted', 'Reply has been successfully deleted');
+
+        return redirect('/admin/replies');
     }
 }

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 
 use App\Http\Requests\UserFormRequest;
+use App\Http\Requests\UserEditFormRequest;
 use App\User;
 use App\Photo;
 use App\Role;
@@ -34,9 +35,10 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
         $role = Role::all()->pluck('name', 'id');
 
-        return view('admin.users.create', compact('role'));
+        return view('admin.users.create', compact('role', 'user'));
     }
 
     /**
@@ -45,7 +47,7 @@ class AdminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
         $input = $request->all();
 
@@ -104,7 +106,7 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserEditFormRequest $request, $id)
     {
         if(trim($request->password) == ''){
            $input = $request->except('password');

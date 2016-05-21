@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 
@@ -17,9 +18,10 @@ class AdminMediasController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $photo = Photo::all();
 
-        return view('admin.media.index', compact('photo'));
+        return view('admin.media.index', compact('photo', 'user'));
     }
 
     /**
@@ -29,7 +31,8 @@ class AdminMediasController extends Controller
      */
     public function create()
     {
-        return view('admin.media.create');
+        $user = Auth::user();
+        return view('admin.media.create', compact('user'));
     }
 
     /**
