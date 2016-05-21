@@ -72,8 +72,8 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-  */  
 
+   */  
         'mysql' => [
             'driver' => 'mysql',
             'port' => env('DB_PORT', '3306'),
@@ -87,7 +87,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-    
+   
 
         'pgsql' => [
             'driver' => 'pgsql',
