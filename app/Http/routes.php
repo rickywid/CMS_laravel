@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', ['uses'=>'PostsController@index']);
 Route::resource('/post', 'PostsController');
-
+Route::resource('/admin/user', 'UserProfileController');
 
 
 Route::auth();
@@ -33,7 +33,7 @@ Route::group(['middleware'=>'admin'], function(){
 
 	Route::resource('/admin/posts', 'AdminPostsController');
 	Route::resource('/admin/users', 'AdminUsersController');
-	Route::resource('/admin/user', 'UserProfileController');
+
 	Route::resource('/admin/categories', 'AdminCategoriesController');
 	Route::resource('/admin/media', 'AdminMediasController');
 	Route::resource('/admin/comments', 'AdminCommentsController');

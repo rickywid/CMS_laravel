@@ -72,7 +72,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
- */ 
+  */  
 
         'mysql' => [
             'driver' => 'mysql',
@@ -87,7 +87,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-      
+    
 
         'pgsql' => [
             'driver' => 'pgsql',
