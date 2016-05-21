@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home - Start Bootstrap Template</title>
+    <title>Laravel CMS</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
@@ -42,7 +42,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    Laravel CMS
                 </a>
             </div>
 
@@ -66,7 +66,7 @@
                                 <li><a href="{{route('admin.users.edit', Auth::user()->id)}}"><i class="fa fa-user fa-fw"></i> Edit Profile</a>
                                 </li>                                                         
                                 @if(Auth::user()->role->name == 'admin' && Auth::user()->is_active == 1)
-                                    <li><a href="{{route('admin.index')}}">Admin Area</a></li>
+                                    <li><a href="{{route('admin.index')}}"><i class="fa fa-user fa-fw"></i> Admin Area</a></li>
                                 @endif
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Admin Area</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">

@@ -4,6 +4,8 @@
 
 	<h2>Create Post</h2>
 
+	<hr>	
+
 	@include('errors.announcement')	
 	@include('errors.error')
 
@@ -31,7 +33,7 @@
 		</div>	
 
 		<div class="form-group">
-			{!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
+			{!! Form::submit('Send', ['class'=>'btn btn-success']) !!}
 		</div>
 
 	{!! Form::close() !!}

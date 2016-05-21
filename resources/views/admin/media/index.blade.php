@@ -7,6 +7,8 @@
 
 	<hr>
 
+	@include('errors.announcement')		
+
 	<table class="table">
 		<thead>
 			<tr>
@@ -14,7 +16,6 @@
 				<th>Image</th>
 				<th>Delete</th>
 				<th>Created</th>
-				<th>Updated</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,8 +34,7 @@
 					{!! Form::close() !!}
 
 				</td>
-				<td>{{$photo->created_at}}</td>
-				<td>{{$photo->updated_at}}</td>			
+				<td>{{$photo->created_at->diffForHumans()}}</td>		
 			</tr>
 
 

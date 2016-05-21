@@ -36,8 +36,8 @@
 				<td>{{$post->title}}</td>
 				<td>{{$post->user->name}}</td>
 				<td><img src="{{$post->photo ? $post->photo->filename : 'http://placehold.it/400x400' }}" height="50" alt=""></td>
-				<td>{{$post->created_at}}</td>
-				<td>{{$post->updated_at}}</td>
+				<td>{{$post->created_at->diffForHumans()}}</td>
+				<td>{{$post->updated_at->diffForHumans()}}</td>
 				<td><a href="{{route('post.show', $post->id)}}" class="btn btn-success">View Post</a></td>
 				<td><a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-info">Edit</a></td>				
 				<td>

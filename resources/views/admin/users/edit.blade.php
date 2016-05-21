@@ -4,6 +4,8 @@
 
 	<h2>Edit User</h2>
 
+	<hr>	
+
 	@include('errors.announcement')	
 	@include('errors.error')
 
@@ -46,7 +48,7 @@
 
 
 			<div class="form-group">
-				{!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
+				{!! Form::submit('Save', ['class'=>'btn btn-success']) !!}
 			</div>	
 		
 

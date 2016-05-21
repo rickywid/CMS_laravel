@@ -9,6 +9,10 @@
 @section('content')
 
 	<h1>Upload Photos</h1>
+
+	<hr>	
+
+	@include('errors.announcement')		
 	
 	{!! Form::open(['method'=>'post', 'action'=>'AdminMediasController@store', 'class'=>'dropzone']) !!}
 

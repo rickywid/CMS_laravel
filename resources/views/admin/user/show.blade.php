@@ -13,6 +13,7 @@
 			<ul>
 				<li><b>Joined: </b>{{$user->created_at->toCookieString()}}</li>
 				<li><b>Blog Posts Count: </b>{{count($user->posts()->get())}}</li>
+				<li><b>User Role: </b>{{$user->role->name}}</li>
 			</ul>			
 		</div>
 

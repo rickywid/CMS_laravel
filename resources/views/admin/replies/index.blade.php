@@ -36,7 +36,7 @@
 				<td>{{$reply->name}}</td>
 				<td>{{$reply->email}}</td>
 				<td>{{$reply->body}}</td>
-				<td>{{$reply->created_at}}</td>
+				<td>{{$reply->created_at->diffForHumans()}}</td>
 				<td>
 					
 					@if($reply->is_active == 1)

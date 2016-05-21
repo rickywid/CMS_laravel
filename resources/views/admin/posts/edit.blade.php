@@ -4,6 +4,8 @@
 
 	<h1>Edit Posts</h1>
 
+	<hr>	
+
 	{!! Form::model($post, ['method'=>'PATCH', 'action'=>['AdminPostsController@update', $post->id], 'files'=>true]) !!}
 
 		<div class="form-group">
@@ -27,7 +29,7 @@
 		</div>	
 
 		<div class="form-group">
-			{!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
+			{!! Form::submit('Save', ['class'=>'btn btn-success']) !!}
 		</div>
 
 	{!! Form::close() !!}	

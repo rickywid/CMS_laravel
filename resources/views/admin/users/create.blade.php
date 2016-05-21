@@ -4,6 +4,8 @@
 
 	<h2>New User</h2>
 
+	<hr>
+
 	@if(Session::has('user_created') || Session::has('user_deleted') || Session::has('user_updated'))
 		<div class="alert alert-success">
 			<p>{{Session('user_created')}}</p>
@@ -56,7 +58,7 @@
 
 
 			<div class="form-group">
-				{!! Form::submit('Submit', ['class'=>'btn btn-success']) !!}
+				{!! Form::submit('Send', ['class'=>'btn btn-success']) !!}
 			</div>			
 			
 
