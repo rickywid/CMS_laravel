@@ -18,7 +18,7 @@ Route::resource('/post', 'PostsController');
 Route::resource('/admin/user', 'UserProfileController');
 Route::get('/admin/users/{id}/edit', ['uses'=>'AdminUsersController@edit']);
 Route::patch('/admin/users/{id}', ['uses'=>'AdminUsersController@update']);
-
+Route::post('/post/reply', ['uses'=>'PostRepliesController@store']);
 
 Route::auth();
 

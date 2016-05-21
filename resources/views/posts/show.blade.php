@@ -101,7 +101,7 @@
                             
                                 <!-- Nested Reply Form Opening -->
                                     
-                                {!! Form::open(['method'=>'POST', 'action'=>'RepliesController@store']) !!}
+                                {!! Form::open(['method'=>'POST', 'action'=>'PostRepliesController@store']) !!}
                                     
                                     <input type="hidden" name="comment_id" value="{{$comment->id}}">
                                     <div class="form-group">
