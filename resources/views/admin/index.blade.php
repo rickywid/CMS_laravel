@@ -34,9 +34,11 @@
 		<li>Confirmation of comments before displaying on post page</li>
 		<li>Allow only logged in users to leave comments on blog posts</li>
 		<li>Form Validations</li>
-		<li>Restrict admin area to Administrators and Active users only</li>
+		<li>Restrict admin area to Administrators and active users only</li>
 		<li>Password resets</li>
 		<li>View and edit logged in user's profile page</li>
 	</ul>
 
+
+	<p>View <a href="https://github.com/rickywid/CMS_laravel">source</a> on Github</p>
 @endsection 

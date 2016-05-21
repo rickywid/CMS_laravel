@@ -2,10 +2,6 @@
 /*# sourceMappingURL=app.css.map */
 
 
-body {
-	padding: 0;
-}
-
 .glyphicon-time {
 	margin-left: 25px;
 }
@@ -21,4 +17,5 @@ body {
 
 #admin-page {
 	padding: 0;
+	padding-bottom: 50px;	
 }
