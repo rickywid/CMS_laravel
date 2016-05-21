@@ -61,10 +61,8 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{route('admin.user.show', $user->id)}}"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                                </li>
-                                <li><a href="{{route('admin.users.edit', $user->id)}}"><i class="fa fa-gear fa-fw"></i> Edit Profile</a>
-                                </li>                            
+                                <li><a href="{{route('admin.user.show', Auth::user()->id)}}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                                </li>                           
                                 @if(Auth::user()->role->name == 'admin' && Auth::user()->is_active == 1)
                                     <li><a href="{{route('admin.index')}}">Admin Area</a></li>
                                 @endif
