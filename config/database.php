@@ -72,7 +72,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-*/ 
+*/
   
         'mysql' => [
             'driver' => 'mysql',
