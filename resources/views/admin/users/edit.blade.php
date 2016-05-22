@@ -12,7 +12,7 @@
 
 	<div class="col-md-4">
 		
-		<img src="{{$user->photo->filename}}" alt="">
+		<img src="{{$user->photo->filename}}" class="img-responsive" alt="">
 
 	</div>
 

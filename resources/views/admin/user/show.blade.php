@@ -4,6 +4,8 @@
 
 	<h2>{{$user->name}}</h2>
 
+	<hr>
+
 	<div class="col-sm-4">
 		<img src="{{$user->photo->filename}}" class="img-responsive" alt="">
 
