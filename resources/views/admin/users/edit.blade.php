@@ -9,6 +9,12 @@
 	@include('errors.announcement')	
 	@include('errors.error')
 
+	@if(Session::has('user_updated'))
+		<div class="alert alert-success">
+			<p>{{session('user_updated')}}</p>
+		</div>
+	@endif
+
 
 	<div class="col-md-4">
 		
@@ -39,10 +45,12 @@
 				{!! Form::radio('is_active', '0') !!}		
 			</div>	
 
-			<div class="form-group">
-				{!! Form::label('role', 'Role') !!}
-				{!! Form::select('role_id', $role) !!}		
-			</div>			
+			@if($user->role->name === 'admin')
+				<div class="form-group">
+					{!! Form::label('role', 'Role') !!}
+					{!! Form::select('role_id', $role) !!}		
+				</div>			
+			@endif
 
 			<div class="form-group">
 				{!! Form::label('password', 'Password') !!}

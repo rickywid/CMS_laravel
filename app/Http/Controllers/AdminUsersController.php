@@ -133,7 +133,11 @@ class AdminUsersController extends Controller
 
         $user->update($input);
 
-        return redirect('/admin/users');
+        if($user->role->name === 'admin') {
+            return view('admin.users.edit', compact('user', 'role'));    
+        } else {
+            return back();             
+        }
     }
 
     /**
