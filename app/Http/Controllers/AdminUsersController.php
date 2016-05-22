@@ -129,12 +129,13 @@ class AdminUsersController extends Controller
             $input['photo_id'] = $photo->id;
         }  
 
+
         Session::flash('user_updated', 'User has been successfully updated');
 
         $user->update($input);
 
         if($user->role->name === 'admin') {
-            return view('admin.users.edit', compact('user', 'role'));    
+            return redirect('/admin/users');    
         } else {
             return back();             
         }
