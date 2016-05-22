@@ -46,7 +46,7 @@ class AdminMediasController extends Controller
             $file = $request->file('file');
            
             //create filename
-            $name = "media" . $file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
             //move file to /public/images/
             $file->move('images', $name);
             //create new photo record in Photos table

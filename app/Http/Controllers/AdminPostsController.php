@@ -56,7 +56,7 @@ class AdminPostsController extends Controller
         if($file = $request->file('filename')){
             
             //assign name for file upload
-            $name = "post". $file->getClientOriginalName();
+            $name = time() . $file->getClientOriginalName();
             //move file to /public/images dir
             $file->move('images', $name);
             //create new image to Photos table
