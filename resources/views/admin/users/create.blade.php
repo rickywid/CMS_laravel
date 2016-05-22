@@ -52,7 +52,7 @@
 
 
 			<div class="form-group">
-				{!! Form:: label('filename', 'Upload Image') !!}
+				{!! Form:: label('filename', 'Profile Picture') !!}
 				{!! Form::file('filename') !!}
 			</div>						
 

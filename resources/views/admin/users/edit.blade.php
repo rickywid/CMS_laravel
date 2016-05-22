@@ -9,6 +9,15 @@
 	@include('errors.announcement')	
 	@include('errors.error')
 
+
+	<div class="col-md-4">
+		
+		<img src="{{$user->photo->filename}}" alt="">
+
+	</div>
+
+	<div class="col-md-8">
+
 	{!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@update', $user->id], 'files'=>true]) !!}
 
 
@@ -42,7 +51,7 @@
 
 
 			<div class="form-group">
-				{!! Form:: label('filename', 'Upload Image') !!}
+				{!! Form:: label('filename', 'Profile Picture') !!}
 				{!! Form::file('filename') !!}
 			</div>						
 
@@ -52,6 +61,8 @@
 			</div>	
 		
 
-	{!! Form::close() !!}
+	{!! Form::close() !!}		
+	</div>
+
 
 @endsection
