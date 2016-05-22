@@ -13,15 +13,29 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', ['uses'=>'PostsController@index']);
-Route::resource('/post', 'PostsController');
-Route::resource('/admin/user', 'UserProfileController');
-Route::get('/admin/users/{id}/edit', ['uses'=>'AdminUsersController@edit']);
-Route::patch('/admin/users/{id}', ['uses'=>'AdminUsersController@update']);
-Route::post('/post/reply', ['uses'=>'PostRepliesController@store']);
-
+// User Login/Registration
 Route::auth();
 
+// Root path
+Route::get('/', ['uses'=>'PostsController@index']);
+
+// Posts
+Route::resource('/post', 'PostsController');
+
+// Logged In User Profile
+Route::resource('/admin/user', 'UserProfileController');
+
+// Logged In User Profile Edit Page
+Route::get('/admin/users/{id}/edit', ['uses'=>'AdminUsersController@edit']);
+
+// Logged In User Profile Edit/Update Patch Route
+Route::patch('/admin/users/{id}', ['uses'=>'AdminUsersController@update']);
+
+// Comment Replies Route
+Route::post('/post/reply', ['uses'=>'PostRepliesController@store']);
+
+
+// Admin Routes
 Route::group(['middleware'=>'admin'], function(){
 	
 
