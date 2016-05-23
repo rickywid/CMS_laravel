@@ -120,22 +120,8 @@
 
                             </div>        
                                                 
-                            {{dd($comment->commentreplies()->get()->where('is_active', '1') as $reply)}}
-                            <!-- Nested Comment -->
-                            <div class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object" src="{{$reply->user_photo ? $reply->user_photo: 'http://placehold.it/64x64' }}" height="64" alt="">
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">{{$reply->name}}
-                                        <small>{{$reply->created_at->diffForHumans()}}</small>
-                                    </h4>
-                                    {{$reply->body}}
-                                </div>
+                            {{dd($comment->commentreplies()->get()->where('is_active', '1')}}
 
-                            </div>
-                            <!-- End Nested Comment -->          
-                            @endforeach   
 
                     </div>
                 </div>
