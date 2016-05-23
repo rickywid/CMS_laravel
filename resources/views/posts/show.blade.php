@@ -75,7 +75,8 @@
                 <!-- Posted Comments -->
 
                 <!-- Comment -->
-
+                <h3>Comments</h3>
+                
                 @foreach($comments as $comment)
                     
                     <hr>   
