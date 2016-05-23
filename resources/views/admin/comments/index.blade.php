@@ -27,7 +27,7 @@
 				<td>{{$comment->id}}</td>
 				<td>{{$comment->name}}</td>
 				<td>{{$comment->body}}</td>
-				<td>{{$comment->created_at->diffForHumans()}</td>
+				<td>{{$comment->created_at->diffForHumans()}}</td>
 				<td>{{$comment->updated_at->diffForHumans()}}</td>
 				<td>
 					

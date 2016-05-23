@@ -38,7 +38,7 @@
 				@foreach($posts as $post)				
 					<tr>
 						<td><a href="{{route('post.show', $post->id)}}">{{$post->title}}</a></td>
-						<td>{{$post->created_at}}</td>
+						<td>{{$post->created_at->diffForHumans()}}</td>
 					</tr>
 				@endforeach
 				</tbody>
