@@ -120,7 +120,7 @@
 
                             </div>        
                                                 
-                            {{dd($comment->commentreplies()->get()->where('is_active', '1')}}
+                            {{dd($comment->commentreplies()->get()->where('is_active', '1'))}}
 
 
                     </div>
