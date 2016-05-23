@@ -120,7 +120,7 @@
 
                             </div>        
                                                 
-                            {{dd($comment->id))}}
+                            {{dd($comment->id)}}
 
 
                     </div>
