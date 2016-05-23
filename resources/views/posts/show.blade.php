@@ -120,7 +120,7 @@
 
                             </div>        
                                                 
-                            @foreach($comment->commentreplies()->get()->where('is_active', '1') as $reply)
+                            {{dd($comment->commentreplies()->get()->where('is_active', '1') as $reply)}}
                             <!-- Nested Comment -->
                             <div class="media">
                                 <a class="pull-left" href="#">
