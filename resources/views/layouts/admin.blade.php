@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/"><i class="glyphicon glyphicon-circle-arrow-left"></i> return to Homepage</a>
         </div>
         <!-- /.navbar-header -->
 

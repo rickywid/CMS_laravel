@@ -25,7 +25,7 @@
 
 		<h3>Blog Posts</h3>
 			
-		@foreach($posts as $post)
+
 
 			<table class="table">
 				<thead>
@@ -35,15 +35,17 @@
 					</tr>
 				</thead>
 				<tbody>
+				@foreach($posts as $post)				
 					<tr>
 						<td><a href="{{route('post.show', $post->id)}}">{{$post->title}}</a></td>
 						<td>{{$post->created_at}}</td>
 					</tr>
+				@endforeach
 				</tbody>
 
 			</table>	
 
-		@endforeach
+
 
 	</div>
 

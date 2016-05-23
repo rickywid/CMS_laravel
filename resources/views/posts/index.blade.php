@@ -32,7 +32,7 @@
 
                 @endif
                 <hr>
-                <p>{{str_limit($post->body, 100)}}</p>
+                <p>{{str_limit($post->body, 300)}}</p>
                 <a class="btn btn-primary" href="{{route('post.show', $post->id)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
